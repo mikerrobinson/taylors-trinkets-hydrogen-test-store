@@ -1,0 +1,14 @@
+{
+  metaobjects(type:"legal_document", first:10) {
+    edges {
+      node {
+        id
+        handle
+        fields {
+          key
+          value
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  metaobject(handle: {handle: "legal-notices", type: "legal_document" }) {
+    id
+    fields {
+      key
+      value
+    }
+  }
+}

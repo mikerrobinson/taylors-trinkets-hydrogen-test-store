@@ -1,0 +1,60 @@
+{
+  product(handle:"bookmark") {
+  #product(id:"gid:\/\/shopify\/Product\/6908837363734") {
+    id
+    title
+    careGuide: metafield(namespace: "descriptors", key: "care_guide") {
+      value
+      type
+    }
+    ageIntroduced: metafield(namespace: "custom", key: "age_introduced") {
+      value
+      type
+    }
+    termsAndConditions: metafield(namespace: "custom", key: "terms_and_conditions") {
+      value
+      type
+    }
+    legalDetails: metafield(namespace: "custom", key: "legal_details") {
+      value
+      type
+    }
+    media(first:10) {
+      edges {
+        node {
+          mediaContentType
+          alt
+          ...mediaFieldsByType
+        }
+      }
+    }
+  }
+}
+fragment mediaFieldsByType on Media {
+  ...on ExternalVideo {
+    id
+    embeddedUrl
+  }
+  ...on MediaImage {
+    image {
+      url
+    }
+  }
+  ...on Model3d {
+    sources {
+      url
+      mimeType
+      format
+      filesize
+    }
+  }
+  ...on Video {
+    sources {
+      url
+      mimeType
+      format
+      height
+      width
+    }
+  }
+}
