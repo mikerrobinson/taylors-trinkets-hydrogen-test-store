@@ -4,7 +4,7 @@ import {
   useMatches,
 } from '@remix-run/react';
 
-export function Link(props) {
+export default function Link(props) {
   const {to, className, ...resOfProps} = props;
   const [root] = useMatches();
   const selectedLocale = root.data.selectedLocale;
