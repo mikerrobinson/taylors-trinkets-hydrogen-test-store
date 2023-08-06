@@ -1,4 +1,4 @@
-import {Link} from '@remix-run/react';
+import Link from './Link';
 import {Image, Money} from '@shopify/hydrogen';
 
 export default function ProductCard({product}) {

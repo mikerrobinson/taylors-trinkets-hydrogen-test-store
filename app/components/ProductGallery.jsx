@@ -1,4 +1,4 @@
-import {MediaFile} from "@shopify/hydrogen";
+import {MediaFile} from '@shopify/hydrogen';
 
 export default function ProductGallery({media}) {
   if (!media.length) {

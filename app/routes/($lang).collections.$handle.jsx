@@ -65,12 +65,15 @@ export default function Collection() {
 
 const COLLECTION_QUERY = `#graphql
   query CollectionDetails(
+    $country: CountryCode
+    $language: LanguageCode
     $handle: String!
     $first: Int
     $last: Int
     $startCursor: String
     $endCursor: String
-  ) {
+  )
+  @inContext(country: $country, language: $language) {
     collection(handle: $handle) {
       id
       title

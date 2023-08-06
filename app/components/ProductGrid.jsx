@@ -1,7 +1,7 @@
 import ProductCard from './ProductCard';
 import {Pagination} from '@shopify/hydrogen';
 
-export default function ProductGrid({collection, url}) {
+export default function ProductGrid({collection}) {
   return (
     <section className="w-full gap-04 md:gap-8 grid">
       <Pagination connection={collection.products}>

@@ -66,8 +66,11 @@ export default function Collection() {
 
 const LEGAL_DOCUMENT_QUERY = `#graphql
   query LegalDocumentDetails(
+    $country: CountryCode
+    $language: LanguageCode
     $handle: String!
-  ) {
+  )
+  @inContext(country: $country, language: $language) {
     metaobject(handle: { handle: $handle, type: "legal_document"}) {
       id
       fields {

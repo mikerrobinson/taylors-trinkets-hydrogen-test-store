@@ -1,9 +1,5 @@
-import {
-  Link,
-  useLocation,
-  useSearchParams,
-  useNavigation,
-} from '@remix-run/react';
+import {useLocation, useSearchParams, useNavigation} from '@remix-run/react';
+import Link from './Link';
 
 export default function ProductOptions({options, selectedVariant}) {
   const {pathname, search} = useLocation();

@@ -100,7 +100,13 @@ export default function ProductHandle() {
 }
 
 const PRODUCT_QUERY = `#graphql
-  query product($handle: String!, $selectedOptions: [SelectedOptionInput!]!) {
+  query product(
+    $country: CountryCode
+    $language: LanguageCode
+    $handle: String!
+    $selectedOptions: [SelectedOptionInput!]!
+  )
+  @inContext(country: $country, language: $language) {
     product(handle: $handle) {
       id
       title

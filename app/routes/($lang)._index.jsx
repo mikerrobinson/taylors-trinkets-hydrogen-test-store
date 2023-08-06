@@ -1,5 +1,6 @@
-import { useLoaderData, Link } from "@remix-run/react";
-import { Image } from "@shopify/hydrogen";
+import {useLoaderData} from '@remix-run/react';
+import {Image} from '@shopify/hydrogen';
+import Link from '~/components/Link';
 
 export function meta() {
   return [
@@ -47,7 +48,11 @@ export default function Index() {
 }
 
 const COLLECTIONS_QUERY = `#graphql
-  query FeaturedCollections {
+  query FeaturedCollections(
+    $country: CountryCode
+    $language: LanguageCode
+  )
+  @inContext(country: $country, language: $language) {
     collections(first: 3, query: "collection_type:smart") {
       nodes {
         id
