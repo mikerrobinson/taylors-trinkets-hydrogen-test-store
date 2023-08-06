@@ -1,7 +1,6 @@
 import {useLoaderData} from '@remix-run/react';
 import {json} from '@shopify/remix-oxygen';
-import ProductGrid from '~/components/ProductGrid';
-import {getPaginationVariables} from '@shopify/hydrogen';
+import {convertSchemaToHtml} from '@thebeyondgroup/shopify-rich-text-renderer';
 
 const seo = ({data}) => ({
   title: data?.collection?.title,
@@ -54,7 +53,12 @@ export default function Collection() {
     <>
       <h2>{document.title}</h2>
       <h3>{document.summary}</h3>
-      {document.content}
+      <div
+        className="html"
+        dangerouslySetInnerHTML={{
+          __html: convertSchemaToHtml(document.content),
+        }}
+      />
       <PrintJson data={document} />
     </>
   );
